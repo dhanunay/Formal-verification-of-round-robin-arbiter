@@ -11,13 +11,11 @@ always @(posedge clk)
     if(!f_past_valid)
 	assume(aresetn==0);
 
-
 // assume property (   @(posedge clk)  (~clk) == $past(clk));
 logic   [1:0] idx, head;
 
 //assume_sym_idx: assume property ( @(posedge clk) disable iff(!aresetn)  ##1 $stable(idx)  );
  assume_sym_idx: assume property ( @(posedge clk) disable iff(!aresetn)  f_past_valid  |-> idx==$past(idx)  );
-
 
 //assume_input: assume property( @(posedge clk) disable iff(!aresetn) (i_req[idx] && !o_grant[idx] ) |=> i_req[idx]   );
 
@@ -28,9 +26,6 @@ assume_invariant :assume property (@(posedge clk) disable iff (!aresetn)
  		  (head == 2'b01 && mask_rg == 4'b1110) ||
  		  (head == 2'b10 && mask_rg == 4'b1100) ||
  	 	  (head == 2'b11 && mask_rg == 4'b1000));
-
-
-
 
 //genvar j;
 //generate 
@@ -52,7 +47,6 @@ always @(posedge clk,negedge aresetn ) begin
   end 
 end 
 
-
 assert_head_grant : assert property ( @(posedge clk) disable iff(!aresetn)  head == idx && i_req[idx] |->  o_grant[idx]  );
 
 assert_inv_grant_req : assert property ( @(posedge clk) disable iff(!aresetn)    o_grant[idx] && head == idx  |->   i_req[idx]  );
@@ -62,8 +56,6 @@ assert_head_grant_low : assert property ( @(posedge clk) disable iff(!aresetn)  
 assert_head_next_grant : assert property ( @(posedge clk) disable iff(!aresetn)  (  head == idx && (!i_req[idx]  && i_req[idx+1'b1] ) )  |->  (!o_grant[idx] && o_grant[idx+1'b1] ) );
 
 cover_head_next_grant : cover property ( @(posedge clk) disable iff(!aresetn)  ( head == idx && (!i_req[idx]  && i_req[idx+1'b1] ) )  &&  ( !o_grant[idx] && o_grant[idx+1'b1] ) );
-
-
 
 //cover_req_changed : cover property(  @(posedge clk)  ##1$changed(  i_req )  );
 
@@ -75,15 +67,11 @@ cover_grant1 : cover property ( @(posedge clk) disable iff(!aresetn)  (  i_req[1
 cover_grant2 : cover property ( @(posedge clk) disable iff(!aresetn)  (  i_req[2] ));
 cover_grant3 : cover property ( @(posedge clk) disable iff(!aresetn)  (  i_req[3] ));
 
-
-
-
 assert_onehot0_grant: assert property (@(posedge clk) disable iff(!aresetn)  ( $countones(o_grant) == 1)  || ($countones(o_grant) == 0) );// onehot0
  
 cover_onehot_grant: cover property(@(posedge clk) disable iff(!aresetn)   ( (|o_grant == 1) && (o_grant & (o_grant-1'b1)) == 0   )     );  // onehot
 
 cover_no_grant:  cover property(@(posedge clk) disable iff(!aresetn)   $countones(o_grant) == 0); 
-
 
 //genvar i;
 //generate 
