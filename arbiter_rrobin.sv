@@ -131,7 +131,7 @@ assign o_grant = (|masked_req)? masked_grant : priority_sel_grant ;
 
 
 `ifdef FORMAL
-`include "arbiter_rrobin.svh"
+`include "arbiter_rrobin_assertions.svh"
 
 `endif
 
