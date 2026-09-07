@@ -6,7 +6,6 @@ initial f_past_valid=0;
 always @(posedge clk)
 	f_past_valid <= 1'b1;
 
-
 always @(posedge clk)
     if(!f_past_valid)
 	assume(aresetn==0);
