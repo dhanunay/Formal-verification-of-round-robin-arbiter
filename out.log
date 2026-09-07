@@ -1,0 +1,61 @@
+Converting
+Type-checking Verilog::arbiter_rrobin
+Synthesis Verilog::arbiter_rrobin
+Induction Base
+Generating Decision Problem
+Using MiniSAT 2.2.1 with simplifier
+Properties
+Solving with propositional reduction
+SAT checker: instance is SATISFIABLE
+SAT: path found
+SAT checker: instance is UNSATISFIABLE
+UNSAT: No path found within bound
+Induction Step
+Using MiniSAT 2.2.1 with simplifier
+SAT checker: instance is UNSATISFIABLE
+UNSAT: inductive proof successful, property holds
+Using MiniSAT 2.2.1 with simplifier
+SAT checker: instance is UNSATISFIABLE
+UNSAT: inductive proof successful, property holds
+Using MiniSAT 2.2.1 with simplifier
+SAT checker: instance is UNSATISFIABLE
+UNSAT: inductive proof successful, property holds
+Using MiniSAT 2.2.1 with simplifier
+SAT checker: instance is UNSATISFIABLE
+UNSAT: inductive proof successful, property holds
+Using MiniSAT 2.2.1 with simplifier
+SAT checker: instance is UNSATISFIABLE
+UNSAT: inductive proof successful, property holds
+Using MiniSAT 2.2.1 with simplifier
+SAT checker inconsistent: instance is UNSATISFIABLE
+UNSAT: inductive proof successful, property holds
+
+** Results:
+[arbiter_rrobin.assume.1] assume always arbiter_rrobin.aresetn == 0: ASSUMED
+[arbiter_rrobin.assume_sym_idx] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.f_past_valid |-> arbiter_rrobin.idx == $past(arbiter_rrobin.idx)): ASSUMED
+[arbiter_rrobin.assume_input] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.f_past_valid && $past(arbiter_rrobin.i_req[arbiter_rrobin.idx] && !arbiter_rrobin.o_grant[arbiter_rrobin.idx]) |-> arbiter_rrobin.i_req[arbiter_rrobin.idx]): ASSUMED
+[arbiter_rrobin.assume_invariant] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.head == 2'b00 && arbiter_rrobin.mask_rg == 4'b1111 || arbiter_rrobin.head == 2'b01 && arbiter_rrobin.mask_rg == 4'b1110 || arbiter_rrobin.head == 2'b10 && arbiter_rrobin.mask_rg == 4'b1100 || arbiter_rrobin.head == 2'b11 && arbiter_rrobin.mask_rg == 4'b1000): ASSUMED
+[arbiter_rrobin.assert_head_grant] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.head == arbiter_rrobin.idx && arbiter_rrobin.i_req[arbiter_rrobin.idx] |-> arbiter_rrobin.o_grant[arbiter_rrobin.idx]): PROVED
+[arbiter_rrobin.assert_inv_grant_req] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.o_grant[arbiter_rrobin.idx] && arbiter_rrobin.head == arbiter_rrobin.idx |-> arbiter_rrobin.i_req[arbiter_rrobin.idx]): PROVED
+[arbiter_rrobin.assert_head_grant_low] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.head == arbiter_rrobin.idx && !arbiter_rrobin.i_req[arbiter_rrobin.idx] |-> !arbiter_rrobin.o_grant[arbiter_rrobin.idx]): PROVED
+[arbiter_rrobin.assert_head_next_grant] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.head == arbiter_rrobin.idx && !arbiter_rrobin.i_req[arbiter_rrobin.idx] && arbiter_rrobin.i_req[arbiter_rrobin.idx + 1'b1] |-> !arbiter_rrobin.o_grant[arbiter_rrobin.idx] && arbiter_rrobin.o_grant[arbiter_rrobin.idx + 1'b1]): PROVED
+[arbiter_rrobin.cover_head_next_grant] cover (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.head == arbiter_rrobin.idx && !arbiter_rrobin.i_req[arbiter_rrobin.idx] && arbiter_rrobin.i_req[arbiter_rrobin.idx + 1'b1] && !arbiter_rrobin.o_grant[arbiter_rrobin.idx] && arbiter_rrobin.o_grant[arbiter_rrobin.idx + 1'b1]): PROVED
+[arbiter_rrobin.cover_all_req] cover (disable iff (!arbiter_rrobin.aresetn) &arbiter_rrobin.i_req == 1): PROVED
+[arbiter_rrobin.cover_no_req] cover (disable iff (!arbiter_rrobin.aresetn) |arbiter_rrobin.i_req == 0): PROVED
+[arbiter_rrobin.cover_grant0] cover (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.i_req[0]): PROVED
+[arbiter_rrobin.cover_grant1] cover (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.i_req[1]): PROVED
+[arbiter_rrobin.cover_grant2] cover (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.i_req[2]): PROVED
+[arbiter_rrobin.cover_grant3] cover (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.i_req[3]): PROVED
+[arbiter_rrobin.assert_onehot0_grant] always (disable iff (!arbiter_rrobin.aresetn) $countones(arbiter_rrobin.o_grant) == 1 || $countones(arbiter_rrobin.o_grant) == 0): PROVED
+[arbiter_rrobin.cover_onehot_grant] cover (disable iff (!arbiter_rrobin.aresetn) |arbiter_rrobin.o_grant == 1 && (arbiter_rrobin.o_grant & arbiter_rrobin.o_grant - 1'b1) == 0): PROVED
+[arbiter_rrobin.cover_no_grant] cover (disable iff (!arbiter_rrobin.aresetn) $countones(arbiter_rrobin.o_grant) == 0): PROVED
+[arbiter_rrobin.assert_req_dont_retreat] always (disable iff (!arbiter_rrobin.aresetn) arbiter_rrobin.f_past_valid && $past(arbiter_rrobin.i_req[arbiter_rrobin.idx] && !arbiter_rrobin.o_grant[arbiter_rrobin.idx]) |-> arbiter_rrobin.i_req[arbiter_rrobin.idx]): PROVED
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_head_next_grant_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_all_req_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_no_req_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_grant0_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_grant1_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_grant2_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_grant3_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_onehot_grant_witness.vcd
+Writing witness trace VCD file to arb.arbiter_rrobin.cover_no_grant_witness.vcd

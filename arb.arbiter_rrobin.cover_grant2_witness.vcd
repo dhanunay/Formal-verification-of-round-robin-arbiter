@@ -1,0 +1,167 @@
+$date
+  Mon Sep  7 10:40:43 2026
+$end
+$timescale
+  1ns
+$end
+$scope module arbiter_rrobin $end
+  $var wire 1 arbiter_rrobin.clk clk [0:0] $end
+  $var wire 1 arbiter_rrobin.aresetn aresetn [0:0] $end
+  $var wire 4 arbiter_rrobin.i_req i_req [3:0] $end
+  $var wire 4 arbiter_rrobin.o_grant o_grant [3:0] $end
+  $var wire 4 arbiter_rrobin.masked_req masked_req [3:0] $end
+  $var wire 4 arbiter_rrobin.masked_grant masked_grant [3:0] $end
+  $var wire 4 arbiter_rrobin.priority_sel_grant priority_sel_grant [3:0] $end
+  $var reg 4 arbiter_rrobin.mask_rg mask_rg [3:0] $end
+  $var reg 1 arbiter_rrobin.f_past_valid f_past_valid [0:0] $end
+  $var reg 2 arbiter_rrobin.idx idx [1:0] $end
+  $var reg 2 arbiter_rrobin.head head [1:0] $end
+  $scope module inst_masked_grant $end
+    $var wire 32 arbiter_rrobin.inst_masked_grant.N N [31:0] $end
+    $var wire 4 arbiter_rrobin.inst_masked_grant.i_req i_req [3:0] $end
+    $var wire 4 arbiter_rrobin.inst_masked_grant.o_grant o_grant [3:0] $end
+  $upscope $end
+  $scope module inst_priority_sel_grant $end
+    $var wire 32 arbiter_rrobin.inst_priority_sel_grant.N N [31:0] $end
+    $var wire 4 arbiter_rrobin.inst_priority_sel_grant.i_req i_req [3:0] $end
+    $var wire 4 arbiter_rrobin.inst_priority_sel_grant.o_grant o_grant [3:0] $end
+  $upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0 arbiter_rrobin.aresetn
+b1010 arbiter_rrobin.i_req
+b1000 arbiter_rrobin.o_grant
+b1000 arbiter_rrobin.masked_req
+b1000 arbiter_rrobin.masked_grant
+b0010 arbiter_rrobin.priority_sel_grant
+b1000 arbiter_rrobin.mask_rg
+b0 arbiter_rrobin.f_past_valid
+b00 arbiter_rrobin.idx
+b00 arbiter_rrobin.head
+b00000000000000000000000000000100 arbiter_rrobin.inst_masked_grant.N
+b1000 arbiter_rrobin.inst_masked_grant.i_req
+b1000 arbiter_rrobin.inst_masked_grant.o_grant
+b00000000000000000000000000000100 arbiter_rrobin.inst_priority_sel_grant.N
+b1010 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0010 arbiter_rrobin.inst_priority_sel_grant.o_grant
+0ebmc::$past1@1
+b00 ebmc::$past2@1
+#1
+b1 arbiter_rrobin.aresetn
+b0000 arbiter_rrobin.i_req
+b0000 arbiter_rrobin.o_grant
+b0000 arbiter_rrobin.masked_req
+b0000 arbiter_rrobin.masked_grant
+b0000 arbiter_rrobin.priority_sel_grant
+b1111 arbiter_rrobin.mask_rg
+b1 arbiter_rrobin.f_past_valid
+b0000 arbiter_rrobin.inst_masked_grant.i_req
+b0000 arbiter_rrobin.inst_masked_grant.o_grant
+b0000 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0000 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#2
+#3
+#4
+#5
+#6
+#7
+#8
+#9
+#10
+#11
+#12
+#13
+#14
+#15
+#16
+#17
+#18
+#19
+#20
+#21
+#22
+#23
+#24
+#25
+#26
+#27
+#28
+#29
+#30
+#31
+#32
+b0001 arbiter_rrobin.i_req
+b0001 arbiter_rrobin.o_grant
+b0001 arbiter_rrobin.masked_req
+b0001 arbiter_rrobin.masked_grant
+b0001 arbiter_rrobin.priority_sel_grant
+b0001 arbiter_rrobin.inst_masked_grant.i_req
+b0001 arbiter_rrobin.inst_masked_grant.o_grant
+b0001 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0001 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#33
+b0000 arbiter_rrobin.i_req
+b0000 arbiter_rrobin.o_grant
+b0000 arbiter_rrobin.masked_req
+b0000 arbiter_rrobin.masked_grant
+b0000 arbiter_rrobin.priority_sel_grant
+b1110 arbiter_rrobin.mask_rg
+b01 arbiter_rrobin.head
+b0000 arbiter_rrobin.inst_masked_grant.i_req
+b0000 arbiter_rrobin.inst_masked_grant.o_grant
+b0000 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0000 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#34
+b0 arbiter_rrobin.aresetn
+b0001 arbiter_rrobin.i_req
+b0001 arbiter_rrobin.o_grant
+b0001 arbiter_rrobin.priority_sel_grant
+b0001 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0001 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#35
+b1 arbiter_rrobin.aresetn
+b0000 arbiter_rrobin.i_req
+b0000 arbiter_rrobin.o_grant
+b0000 arbiter_rrobin.priority_sel_grant
+b1111 arbiter_rrobin.mask_rg
+b00 arbiter_rrobin.head
+b0000 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0000 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#36
+b0 arbiter_rrobin.aresetn
+b1110 arbiter_rrobin.i_req
+b0010 arbiter_rrobin.o_grant
+b1110 arbiter_rrobin.masked_req
+b0010 arbiter_rrobin.masked_grant
+b0010 arbiter_rrobin.priority_sel_grant
+b1110 arbiter_rrobin.inst_masked_grant.i_req
+b0010 arbiter_rrobin.inst_masked_grant.o_grant
+b1110 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0010 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#37
+b1 arbiter_rrobin.aresetn
+b0000 arbiter_rrobin.i_req
+b0000 arbiter_rrobin.o_grant
+b0000 arbiter_rrobin.masked_req
+b0000 arbiter_rrobin.masked_grant
+b0000 arbiter_rrobin.priority_sel_grant
+b0000 arbiter_rrobin.inst_masked_grant.i_req
+b0000 arbiter_rrobin.inst_masked_grant.o_grant
+b0000 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0000 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#38
+b0 arbiter_rrobin.aresetn
+b1110 arbiter_rrobin.i_req
+b0010 arbiter_rrobin.o_grant
+b1110 arbiter_rrobin.masked_req
+b0010 arbiter_rrobin.masked_grant
+b0010 arbiter_rrobin.priority_sel_grant
+b1110 arbiter_rrobin.inst_masked_grant.i_req
+b0010 arbiter_rrobin.inst_masked_grant.o_grant
+b1110 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0010 arbiter_rrobin.inst_priority_sel_grant.o_grant
+#39
+#40
+#41
+b1 arbiter_rrobin.aresetn

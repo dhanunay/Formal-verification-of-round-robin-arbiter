@@ -1,0 +1,62 @@
+$date
+  Mon Sep  7 10:40:43 2026
+$end
+$timescale
+  1ns
+$end
+$scope module arbiter_rrobin $end
+  $var wire 1 arbiter_rrobin.clk clk [0:0] $end
+  $var wire 1 arbiter_rrobin.aresetn aresetn [0:0] $end
+  $var wire 4 arbiter_rrobin.i_req i_req [3:0] $end
+  $var wire 4 arbiter_rrobin.o_grant o_grant [3:0] $end
+  $var wire 4 arbiter_rrobin.masked_req masked_req [3:0] $end
+  $var wire 4 arbiter_rrobin.masked_grant masked_grant [3:0] $end
+  $var wire 4 arbiter_rrobin.priority_sel_grant priority_sel_grant [3:0] $end
+  $var reg 4 arbiter_rrobin.mask_rg mask_rg [3:0] $end
+  $var reg 1 arbiter_rrobin.f_past_valid f_past_valid [0:0] $end
+  $var reg 2 arbiter_rrobin.idx idx [1:0] $end
+  $var reg 2 arbiter_rrobin.head head [1:0] $end
+  $scope module inst_masked_grant $end
+    $var wire 32 arbiter_rrobin.inst_masked_grant.N N [31:0] $end
+    $var wire 4 arbiter_rrobin.inst_masked_grant.i_req i_req [3:0] $end
+    $var wire 4 arbiter_rrobin.inst_masked_grant.o_grant o_grant [3:0] $end
+  $upscope $end
+  $scope module inst_priority_sel_grant $end
+    $var wire 32 arbiter_rrobin.inst_priority_sel_grant.N N [31:0] $end
+    $var wire 4 arbiter_rrobin.inst_priority_sel_grant.i_req i_req [3:0] $end
+    $var wire 4 arbiter_rrobin.inst_priority_sel_grant.o_grant o_grant [3:0] $end
+  $upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+b0 arbiter_rrobin.aresetn
+b1010 arbiter_rrobin.i_req
+b1000 arbiter_rrobin.o_grant
+b1000 arbiter_rrobin.masked_req
+b1000 arbiter_rrobin.masked_grant
+b0010 arbiter_rrobin.priority_sel_grant
+b1000 arbiter_rrobin.mask_rg
+b0 arbiter_rrobin.f_past_valid
+b00 arbiter_rrobin.idx
+b00 arbiter_rrobin.head
+b00000000000000000000000000000100 arbiter_rrobin.inst_masked_grant.N
+b1000 arbiter_rrobin.inst_masked_grant.i_req
+b1000 arbiter_rrobin.inst_masked_grant.o_grant
+b00000000000000000000000000000100 arbiter_rrobin.inst_priority_sel_grant.N
+b1010 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0010 arbiter_rrobin.inst_priority_sel_grant.o_grant
+0ebmc::$past1@1
+b00 ebmc::$past2@1
+#1
+b1 arbiter_rrobin.aresetn
+b0000 arbiter_rrobin.i_req
+b0000 arbiter_rrobin.o_grant
+b0000 arbiter_rrobin.masked_req
+b0000 arbiter_rrobin.masked_grant
+b0000 arbiter_rrobin.priority_sel_grant
+b1111 arbiter_rrobin.mask_rg
+b1 arbiter_rrobin.f_past_valid
+b0000 arbiter_rrobin.inst_masked_grant.i_req
+b0000 arbiter_rrobin.inst_masked_grant.o_grant
+b0000 arbiter_rrobin.inst_priority_sel_grant.i_req
+b0000 arbiter_rrobin.inst_priority_sel_grant.o_grant

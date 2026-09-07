@@ -1,0 +1,47 @@
+[tasks]
+basic bmc
+repro_bug1 prove
+repro_bug2 prove
+repro_bug3 prove
+cover
+prove
+noverific cover
+basic cover : default
+
+[options]
+cover:
+mode cover
+depth 30
+[engines]
+smtbmc  --progress boolector
+--
+prove:
+mode prove
+append 3
+depth 30
+[engines] 
+abc pdr -c "pdr -v"
+
+
+--
+bmc: 
+mode bmc
+depth 40
+[engines]
+smtbmc  --progress boolector
+--
+
+[script]
+repro_bug1: read -define BUG1=1
+repro_bug2: read -define BUG2=1
+repro_bug3: read -define BUG3=1
+noverific: read -noverific
+read -formal arbiter_fx_priority.sv 
+read -formal  arbiter_rrobin.sv
+prep -top  arbiter_rrobin
+
+[files]
+ arbiter_fx_priority.sv 
+ arbiter_rrobin.sv
+
+
